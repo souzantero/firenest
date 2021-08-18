@@ -1,9 +1,8 @@
-import firebase from 'firebase-admin';
-import { AsyncModuleOptions } from '../shared';
+import firebase, { app } from 'firebase-admin';
+
+export interface FirebaseAdminApp extends app.App {}
 
 export interface FirebaseAdminModuleOptions {
+  appName?: string;
   appOptions?: firebase.AppOptions;
 }
-
-export interface FirebaseAdminModuleAsyncOptions
-  extends AsyncModuleOptions<FirebaseAdminModuleOptions> {}
