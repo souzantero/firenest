@@ -1,8 +1,8 @@
 import firebase, { app } from 'firebase-admin';
 
-export interface FirebaseAdminApp extends app.App {}
+export interface FireAdminApp extends app.App {}
 
-export interface FirebaseAdminModuleOptions {
+export interface FireAdminModuleOptions {
   appName?: string;
   appOptions?: firebase.AppOptions;
 }

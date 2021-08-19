@@ -1,2 +1,2 @@
-export * from './firebase-admin';
+export * from './fire-admin';
 export * from './shared';

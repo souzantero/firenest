@@ -1,13 +1,13 @@
 import { DynamicModule, Global, Module } from '@nestjs/common';
-import { FirebaseAdminModuleOptions } from './firebase-admin.interfaces';
+import { FireAdminModuleOptions } from './fire-admin.interfaces';
 import * as firebase from 'firebase-admin';
-import { getFirebaseAdminAppToken } from './firebase-admin.utils';
+import { getFireAdminAppToken } from './fire-admin.utils';
 
 @Global()
 @Module({})
-export class FirebaseAdminCoreModule {
-  static register(options: FirebaseAdminModuleOptions): DynamicModule {
-    const firebaseAdminAppName = getFirebaseAdminAppToken(options.appName);
+export class FireAdminCoreModule {
+  static register(options: FireAdminModuleOptions): DynamicModule {
+    const firebaseAdminAppName = getFireAdminAppToken(options.appName);
     const firebaseAdminAppProvider = {
       provide: firebaseAdminAppName,
       useFactory: () => {
@@ -20,7 +20,7 @@ export class FirebaseAdminCoreModule {
     };
 
     return {
-      module: FirebaseAdminCoreModule,
+      module: FireAdminCoreModule,
       providers: [firebaseAdminAppProvider],
       exports: [firebaseAdminAppProvider],
     };
