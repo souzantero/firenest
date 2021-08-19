@@ -1,6 +1,9 @@
 import { DynamicModule, Module } from '@nestjs/common';
 import { FireAdminCoreModule } from './fire-admin-core.module';
-import { FireAdminModuleOptions } from './fire-admin.interfaces';
+import {
+  FireAdminModuleAsyncOptions,
+  FireAdminModuleOptions,
+} from './fire-admin.interfaces';
 
 @Module({})
 export class FireAdminModule {
@@ -8,6 +11,13 @@ export class FireAdminModule {
     return {
       module: FireAdminModule,
       imports: [FireAdminCoreModule.register(options)],
+    };
+  }
+
+  static registerAsync(options: FireAdminModuleAsyncOptions): DynamicModule {
+    return {
+      module: FireAdminModule,
+      imports: [FireAdminCoreModule.registerAsync(options)],
     };
   }
 }
